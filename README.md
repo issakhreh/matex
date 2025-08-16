@@ -1,2 +1,29 @@
-# matex
-just for test
+# .github/workflows/deploy-pages.yml
+name: 🌍 Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v3
+
+    - name: 🛠 Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: 📦 Install dependencies (optional)
+      run: |
+        npm install
+        npm run build
+
+    - name: 🚀 Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
