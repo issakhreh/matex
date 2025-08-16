@@ -1,7 +1,7 @@
 # .github/workflows/deploy-pages.yml
 name: 🌍 Deploy to GitHub Pages
 
-on:
+on
   push:
     branches: [main]
 
