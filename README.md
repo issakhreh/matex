@@ -20,7 +20,7 @@ jobs:
     - name: 📦 Install dependencies (optional)
       run: |
         npm install
-        npm run buil
+        npm run build
 
     - name: 🚀 Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
